@@ -1,6 +1,6 @@
 ## Priyank's Landing Page
 
-...
+***
 
-###Things To Do
+## Things To Do
 - Add Trello/Jira icons
