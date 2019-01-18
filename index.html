@@ -60,7 +60,7 @@
                     <a href="#works" class="smoothscroll btn btn--stroke">
                         Resume
                     </a>
-                    <a href="contactMe.html" class="btn btn--stroke">
+                    <a href="mailto:priyank01agarwal@gmail.com?Subject=Hello%20Priyank" target="_top" class="btn btn--stroke">
                         Get In Touch
                     </a>
                 </div>
@@ -227,3 +227,22 @@
 </body>
 
 </html>
+<!-- <script type="text/javascript">
+    (function($) {
+      $('a[href^=mailto]').each(function() {
+        var href = $(this).attr('href');
+        $(this).click(function() {
+          var t;
+          var self = $(this);
+
+          $(window).blur(function() {
+            clearTimeout(t);
+          });
+
+          t = setTimeout(function() {
+            document.location.href = '...';
+          }, 500);
+        });
+      });
+    })(jQuery);
+</script> -->
