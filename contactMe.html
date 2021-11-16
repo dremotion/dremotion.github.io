@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<!--[if lt IE 9 ]><html class="no-js oldie" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en">
+<!--<![endif]-->
+
+    <head>
+
+        <!--- basic page needs
+        ================================================== -->
+        <meta charset="utf-8">
+        <title>Priyank Agarwal</title>
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <!-- mobile specific metas
+        ================================================== -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- CSS
+        ================================================== -->
+        <link rel="stylesheet" href="css/base.css">
+        <link rel="stylesheet" href="css/vendor.css">
+        <link rel="stylesheet" href="css/main.css">
+
+        <!-- script
+        ================================================== -->
+        <script src="js/modernizr.js"></script>
+        <script src="js/pace.min.js"></script>
+        <script src="js/jquery-3.2.1.min.js"></script>
+
+        <!-- favicons
+        ================================================== -->
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    </head>
+
+    <body>
+        
+        <div class="container" style="height: 70%">
+            <div class="row">
+                <div class="col-md-12 col-lg-12 text-center">
+                    <h2 style="color: white;">Contact</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-10 col-lg-10 ">
+                    <form id="contactForm" class="form" action="#" method="POST" role="form">
+                        <div class="form-group">
+                            <label class="form-label" for="name">Your Name</label>
+                            <input type="text" class="form-control full-width" id="name" name="name" placeholder="Your name" tabindex="1" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="email">Your Email</label>
+                            <input type="email" class="form-control full-width" id="email" name="email" placeholder="Your Email" tabindex="2" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="subject">Subject</label>
+                            <input type="text" class="form-control full-width" id="subject" name="subject" placeholder="Subject" tabindex="3">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="message">Message</label>
+                            <textarea rows="5" cols="50" name="message" class="form-control full-width" id="message" placeholder="Message..." tabindex="4" required></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="full-width btn--primary">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+    </body>
+</html>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        // Test for placeholder support
+        $.support.placeholder = (function(){
+            var i = document.createElement('input');
+            return 'placeholder' in i;
+        })();
+
+        // Hide labels by default if placeholders are supported
+        if($.support.placeholder) {
+            $('.form-label').each(function(){
+                $(this).addClass('js-hide-label');
+            });  
+
+            // Code for adding/removing classes here
+            $('.form-group').find('input, textarea').on('keyup blur focus', function(e){
+                
+                // Cache our selectors
+                var $this = $(this),
+                    $parent = $this.parent().find("label");
+                        
+                            switch(e.type) {
+                                case 'keyup': {
+                                     $parent.toggleClass('js-hide-label', $this.val() == '');
+                                } break;
+                                case 'blur': {
+                                    if( $this.val() == '' ) {
+                        $parent.addClass('js-hide-label');
+                    } else {
+                        $parent.removeClass('js-hide-label').addClass('js-unhighlight-label');
+                    }
+                                } break;
+                                case 'focus': {
+                                    if( $this.val() !== '' ) {
+                        $parent.removeClass('js-unhighlight-label');
+                    }
+                                } break;
+                                default: break;
+                            }
+                            // previous implementation with ifs
+                /*if (e.type == 'keyup') {
+                    if( $this.val() == '' ) {
+                        $parent.addClass('js-hide-label'); 
+                    } else {
+                        $parent.removeClass('js-hide-label');   
+                    }                     
+                } 
+                else if (e.type == 'blur') {
+                    if( $this.val() == '' ) {
+                        $parent.addClass('js-hide-label');
+                    } 
+                    else {
+                        $parent.removeClass('js-hide-label').addClass('js-unhighlight-label');
+                    }
+                } 
+                else if (e.type == 'focus') {
+                    if( $this.val() !== '' ) {
+                        $parent.removeClass('js-unhighlight-label');
+                    }
+                }*/
+            });
+        } 
+    });
+</script>
